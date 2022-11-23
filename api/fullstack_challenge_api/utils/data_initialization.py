@@ -1,8 +1,8 @@
 import datetime
 import json
 
-from sqlalchemy import Column, Integer, String, DateTime, create_engine, Float, ForeignKey, Text
-from sqlalchemy.orm import declarative_base, sessionmaker, relationship
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 from api.fullstack_challenge_api.models.Company import Company, Base
 from api.fullstack_challenge_api.models.Deal import Deal
@@ -34,6 +34,7 @@ def load_companies_and_deals_from_files(user, password, url, db_name, company_fi
     for deal_data in deals_parsed.values():
         if not company_ids.__contains__(deal_data['company_id']):
             continue
+
         date = None if deal_data['date'] is None \
             else datetime.datetime.fromtimestamp(deal_data['date'] / 1e3)
         deal = Deal(date=date,
