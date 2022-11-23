@@ -53,5 +53,6 @@ def load_companies_and_deals_from_files(user, password, url, db_name, company_fi
 if __name__ == 'main':
     company_file = '../../../data/challenge_companies.json'
     deals_file = '../../../data/challenge_deals.json'
+    #Change arguments when running script
     load_companies_and_deals_from_files('user', 'pw', 'host', 'db', company_file,
                                         deals_file)
