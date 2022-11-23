@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, Text, Float, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
+from ..models.Base import Base
 
 
 class Deal(Base):
