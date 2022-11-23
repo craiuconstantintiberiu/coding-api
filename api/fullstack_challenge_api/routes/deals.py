@@ -8,5 +8,7 @@ router = APIRouter()
 
 
 @router.get("/deals")
-async def get_companies(db: Session = Depends(get_db)):
-    return db.query(Deal).all()
+async def get_companies(db: Session = Depends(get_db), pageNumber: int = 0, pageSize: int = 10):
+    return db.query(Deal).slice(pageSize * pageNumber, pageSize * pageNumber + pageSize).all()
+
+
